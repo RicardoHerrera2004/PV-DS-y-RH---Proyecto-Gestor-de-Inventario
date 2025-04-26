@@ -13,10 +13,21 @@ html {
 }
 
 html {
-  position: relative;
+  position: relative;   
   min-height: 100%;
 }
+header {
+    background-color: #212529; 
+    color: white; /* Texto blanco */
+}
+
+    /* Pueden agregar estilos adicionales si es necesario */
+    header .container {
+        max-width: 000px; /* Puedes ajustar el tamaño máximo del contenedor */
+    }
+
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: floralwhite
 }
