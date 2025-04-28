@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
 {
     [DbContext(typeof(SQLServerContextGestionInventarioSJCP))]
-    partial class SQLServerContextGestionInventarioSJCPModelSnapshot : ModelSnapshot
+    [Migration("20250428180225_Migracion sin los iconos ni imagenes")]
+    partial class Migracionsinlosiconosniimagenes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

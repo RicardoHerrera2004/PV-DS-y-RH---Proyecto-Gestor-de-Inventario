@@ -1,33 +1,84 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;   
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
+
 header {
-    background-color: #212529; 
+    background-color: #212529;
     color: white; /* Texto blanco */
 }
 
-    /* Pueden agregar estilos adicionales si es necesario */
+    /* Opcional: ajustar ancho mÃ¡ximo de header */
     header .container {
-        max-width: 000px; /* Puedes ajustar el tamaño máximo del contenedor */
+        max-width: 000px; /* Ajusta o elimina si no se usa */
     }
-
 
 body {
     margin-bottom: 60px;
-    background-color: floralwhite
+    background-color: floralwhite;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #2b3035;
+    min-height: 100vh;
+}
+
+/* Logo container */
+.logo-container {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 1rem;
+}
+
+    .logo-container img {
+        width: 80px;
+    }
+
+    .logo-container span {
+        color: #fff;
+        font-size: 1.5rem;
+        margin-left: .5rem;
+    }
+
+/* Main content */
+main {
+    padding: 1.5rem;
+    background: #f8f9fa; /* o tu color preferido */
+}
+
+/* Carrusel en Home */
+/* Ajusta la altura, overflow y cover para tu carrusel con id carouselExampleDark */
+#carouselExampleDark .carousel-item {
+    height: 575px;
+    overflow: hidden;
+}
+
+    #carouselExampleDark .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+#carouselExampleDark .carousel-caption {
+    background: rgba(0,0,0,0.4);
+    padding: 1rem;
+    border-radius: .5rem;
 }

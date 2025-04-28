@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
 {
     /// <inheritdoc />
-    public partial class MigracionInicial : Migration
+    public partial class AgregaIconoAProducto : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -51,7 +51,7 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     FechaRegistro = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Imagen = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Icono = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Cantidad = table.Column<int>(type: "int", nullable: false),
                     CategoriaId = table.Column<int>(type: "int", nullable: false)
                 },

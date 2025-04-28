@@ -47,6 +47,11 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Controllers
         // GET: Pedido/Create
         public IActionResult Create()
         {
+
+            var cliente = _context.Cliente
+                                     .OrderBy(c => c.Nombre)
+                                     .ToList();
+
             ViewData["ClienteId"] = new SelectList(_context.Cliente, "Id", "Apellido");
             return View();
         }

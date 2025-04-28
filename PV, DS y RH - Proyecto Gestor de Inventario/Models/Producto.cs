@@ -14,8 +14,6 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Models
         public decimal Precio { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime FechaRegistro { get; set; }
-        [Url]
-        public string Imagen { get; set; }
         [Range(0, int.MaxValue, ErrorMessage = "La cantidad debe ser un número entero no negativo.")]
         public int Cantidad { get; set; }
         public int CategoriaId { get; set; }

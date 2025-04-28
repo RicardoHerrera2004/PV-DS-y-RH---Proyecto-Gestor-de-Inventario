@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
 {
     [DbContext(typeof(SQLServerContextGestionInventarioSJCP))]
-    partial class SQLServerContextGestionInventarioSJCPModelSnapshot : ModelSnapshot
+    [Migration("20250428143006_AgregaIconoAProducto")]
+    partial class AgregaIconoAProducto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,50 +44,6 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categoria");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Descripcion = "Prendas de vestir: camisetas, pantalones, chaquetas…",
-                            Nombre = "Ropa"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Descripcion = "Alimentos en conserva, envasados y frescos.",
-                            Nombre = "Comida"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Descripcion = "Bebidas alcohólicas y no alcohólicas.",
-                            Nombre = "Bebidas"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Descripcion = "Productos de despensa: cereales, lácteos, granos.",
-                            Nombre = "Abarrotes"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Descripcion = "Collares, anillos, pulseras y accesorios metálicos.",
-                            Nombre = "Joyas"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Descripcion = "Medicamentos y productos de cuidado de la salud.",
-                            Nombre = "Fármacos"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Descripcion = "Artículos diversos que no encajan en las categorías anteriores.",
-                            Nombre = "Otros"
-                        });
                 });
 
             modelBuilder.Entity("PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Models.Cliente", b =>
@@ -204,6 +163,11 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
 
                     b.Property<DateTime>("FechaRegistro")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Icono")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()

@@ -47,24 +47,36 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Controllers
         // GET: Producto/Create
         public IActionResult Create()
         {
-            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "Id", "Nombre");
-            return View();
+            // Carga todas las categorías ordenadas por Nombre
+            var categoria = _context.Categoria
+                                     .OrderBy(c => c.Nombre)
+                                     .ToList();
+
+            // Genera un SelectList con Value = Id y Text = Nombre
+            ViewBag.CategoriaId = new SelectList(categoria, "Id", "Nombre");
+
+            return View(new Producto
+            {
+                FechaRegistro = DateTime.Now
+            });
         }
 
         // POST: Producto/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,Precio,FechaRegistro,Imagen,Cantidad,CategoriaId")] Producto producto)
+        public async Task<IActionResult> Create(Producto producto)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(producto);
+                _context.Producto.Add(producto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "Id", "Nombre", producto.CategoriaId);
+            // si falla validación, recargamos el dropdown
+            ViewBag.CategoriaId = new SelectList(
+                _context.Categoria.OrderBy(c => c.Nombre),
+                "Id", "Nombre", producto.CategoriaId
+            );
             return View(producto);
         }
 
@@ -90,7 +102,7 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Precio,FechaRegistro,Imagen,Cantidad,CategoriaId")] Producto producto)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Precio,FechaRegistro,Cantidad,CategoriaId")] Producto producto)
         {
             if (id != producto.Id)
             {

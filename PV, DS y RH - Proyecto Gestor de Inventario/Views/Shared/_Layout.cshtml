@@ -1,109 +1,43 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] Inventar.io </title>
+    <!-- meta, títulos, estilos… -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/PV__DS_y_RH___Proyecto_Gestor_de_Inventario.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
+    <div class="container-fluid">
+        <div class="row g-0">
+            <!-- Sidebar fijo de ancho 270px: -->
+            <nav class="col-auto sidebar d-flex flex-column p-3">
+                <div class="logo-container mb-4">
+                    <a asp-controller="Home" asp-action="Index" class="d-flex align-items-center text-decoration-none">
+                        <img src="~/images/logo.png" width="80" alt="Logo" />
+                        <span class="ms-2 fs-4 text-white">Inventar.io</span>
+                    </a>
+                </div>
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item"><a asp-controller="Producto" asp-action="Index" class="nav-link text-white">Producto</a></li>
+                    <li class="nav-item"><a asp-controller="Categoria" asp-action="Index" class="nav-link text-white">Categoría</a></li>
+                    <li class="nav-item"><a asp-controller="Pedido" asp-action="Index" class="nav-link text-white">Pedido</a></li>
+                    <li class="nav-item"><a asp-controller="Cliente" asp-action="Index" class="nav-link text-white">Cliente</a></li>
+                </ul>
+            </nav>
 
-    <style>
-        /* Sidebar - Caja gris a la izquierda */
-        .sidebar {
-            background-color: #2b3035;
-            box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
-            width: 270px; /* opciones para ajustar ancho, altura, posicion etc */
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            padding-top: 20px;
-            padding-left: 20px;
-        }
-
-
-        /* Logo y contenedor con la línea blanca debajo */
-        .logo-container {
-            border-bottom: 1px solid #ffffff; /* Línea blanca debajo del logo */
-            padding-bottom: 2px; /* Aumentar el espacio debajo de la línea */
-            margin-bottom: 2px; /* Margen adicional para separar del contenido */
-        }
-
-            .logo-container img {
-                width: 100px; /* Tamaño del logo */
-            }
-
-            .logo-container span { /* opciones de las letras al lado de el logo */
-                color: whitesmoke;
-                font-size: 1.5rem; /* Tamaño de la fuente */
-                margin-left: 0; /* Espacio entre el logo y el nombre */
-            }
-
-     
-        .content {
-            padding: 10px;
-            color: whitesmoke; /* opciones del texto del contenido */
-        }
-
-        /* Aseguramos que el contenedor principal tenga un buen margen superior */
-        .container {
-            margin-left: 320px; /* Deja espacio para el sidebar */
-            padding-top: 20px;
-        }
-    </style>
-
-    <div class="d-flex">
-        <!-- Sidebar (Caja gris a la izquierda) -->
-        <div class="sidebar">
-            <!-- Logo y nombre de la app con la línea de separación -->
-            <div class="logo-container">
-                <a href="/" id="logo" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                    <img src="~/images/logo.png" alt="Logo de la app" />
-                    <span class="fs-4 ms- ">Inventar.io</span>
-                </a>
-            </div>
-
-
-            <!-- Barra de navegación con las opciones (justificadas al centro) -->
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="Producto" asp-action="Index" class="nav-link active" aria-current="page">Producto</a>
-                </li>
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="Categoria" asp-action="Index" class="nav-link active">Categoria</a>
-                </li>
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="Pedido" asp-action="Index" class="nav-link active">Pedido</a>
-                </li>
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="Cliente" asp-action="Index" class="nav-link active">Cliente</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-        <!-- Contenedor principal para el resto del contenido -->
-        <div class="container">
-            <main role="main" class="pb-3">
+            <!-- Contenido principal ocupa el resto de la pantalla -->
+            <main class="col p-0">
                 @RenderBody()
             </main>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - PV__DS_y_RH___Proyecto_Gestor_de_Inventario - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    <footer class="border-top text-center py-3">
+        &copy; 2025 – Inventar.io
     </footer>
 
-    <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
