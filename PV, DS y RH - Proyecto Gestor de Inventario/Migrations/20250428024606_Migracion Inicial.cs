@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
 {
     /// <inheritdoc />
-    public partial class PrimeraMigracion : Migration
+    public partial class MigracionInicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -63,7 +63,7 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
                         column: x => x.CategoriaId,
                         principalTable: "Categoria",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -86,7 +86,7 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
                         column: x => x.ClienteId,
                         principalTable: "Cliente",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Pedido_Producto_ProductoId",
                         column: x => x.ProductoId,
@@ -114,13 +114,13 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
                         column: x => x.PedidoId,
                         principalTable: "Pedido",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_DetallePedido_Producto_ProductoId",
                         column: x => x.ProductoId,
                         principalTable: "Producto",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
