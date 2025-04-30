@@ -1,8 +1,114 @@
-﻿@{
+﻿﻿@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Título del sistema -->
+<div class="text-center my-4">
+    <h1 class="display-4">Sistema de Inventario</h1>
+</div>
+
+<!-- Carrusel -->
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
+                class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+            <img src="https://img.freepik.com/foto-gratis/manos-primer-plano-obteniendo-caja_23-2148767157.jpg"
+                 class="d-block w-100 carousel-img"
+                 alt="Productos">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Productos</h5>
+                <p>Gestiona y organiza tus productos de manera eficiente. Accede a información detallada, controla existencias, actualiza precios y realiza un seguimiento en tiempo real.</p>
+                <p><a class="btn btn-lg btn-primary" asp-controller="Producto" asp-action="Index">Productos</a></p>
+            </div>
+        </div>
+
+        <div class="carousel-item" data-bs-interval="2000">
+            <img src="https://pinturasdoal.com/wp-content/uploads/Featured-Como-hacer-correctamente-un-inventario.jpg"
+                 class="d-block w-100 carousel-img"
+                 alt="Inventario">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Inventario</h5>
+                <p>Conoce en todo momento el estado de tu stock y evita quiebres o excesos.</p>
+                <p><a class="btn btn-lg btn-primary" href="#">Ver Inventario</a></p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="https://cdn.prod.website-files.com/5cf800d1c316946e5da60fb9/650c9188f4ec4860906e35f1_62d89309e72bc885f2925f7e_REPORTES%20DE%20INVENTARIO%20IPOS%20NEWSLETTER-2.webp"
+                 class="d-block w-100 carousel-img"
+                 alt="Reportes">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Reportes y Estadísticas</h5>
+                <p>Genera informes automáticos para analizar tendencias y optimizar tu negocio.</p>
+                <p><a class="btn btn-lg btn-primary" href="#">Ver Reportes</a></p>
+            </div>
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button"
+            data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button"
+            data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- Tus cards -->
+<div class="container py-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
+        <!-- Card 1 -->
+        <div class="col">
+            <div class="card h-100 border-0">
+                <img src="https://media.istockphoto.com/id/1303877287/es/vector/lista-de-verificación-de-papel-y-pictograma-plano-lápiz.jpg?s=612x612&w=0&k=20&c=hQYGjkR8CBZEElNgfOOSb4xF5o9rPPcaITEev-7ZTQI="
+                     alt="Sistema de Inventario"
+                     class="bd-placeholder-img rounded-circle mx-auto d-block"
+                     width="140" height="140" />
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Sistema de Inventario</h5>
+                    <p class="card-text text-muted">Gestiona tus productos, categorías y pedidos de manera eficiente.</p>
+                    <p><a class="btn btn-secondary" href="#">Inicia ahora »</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col">
+            <div class="card h-100 border-0">
+                <img src="https://londoncg.com/hs-fs/hubfs/Imagenes%20MS%20(blog)/Diciembre%202023/Control%20de%20inventarios%20herramientas%2C%20beneficios%20y%20m%C3%A9todos%20para%20una%20gesti%C3%B3n%20efectiva/por-que-es-importante-una-buena-gestion-de-inventario.png?width=900&height=500&name=por-que-es-importante-una-buena-gestion-de-inventario.png"
+                     alt="Control de Clientes"
+                     class="bd-placeholder-img rounded-circle mx-auto d-block"
+                     width="140" height="140" />
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Control de Clientes</h5>
+                    <p class="card-text text-muted">Administra los datos de tus clientes de forma sencilla y rápida.</p>
+                    <p><a class="btn btn-secondary" href="#">Inicia ahora »</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col">
+            <div class="card h-100 border-0">
+                <img src="https://blog.qupos.com/hs-fs/hubfs/control-inventario-erp-1.png?width=1600&name=control-inventario-erp-1.png"
+                     alt="Reportes y Estadísticas"
+                     class="bd-placeholder-img rounded-circle mx-auto d-block"
+                     width="140" height="140" />
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Reportes y Estadísticas</h5>
+                    <p class="card-text text-muted">Genera reportes automáticos para analizar el inventario.</p>
+                    <p><a class="btn btn-secondary" href="#">Inicia ahora »</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
