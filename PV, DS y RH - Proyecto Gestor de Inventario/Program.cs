@@ -1,4 +1,8 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<SQLInventarioPruebaContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SQLInventarioPruebaContext") ?? throw new InvalidOperationException("Connection string 'SQLInventarioPruebaContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
