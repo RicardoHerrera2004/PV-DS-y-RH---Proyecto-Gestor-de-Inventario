@@ -16,7 +16,7 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Models
         public string Estado { get; set; } 
         public int ClienteId { get; set; }
         [ForeignKey("ClienteId")]
-        public Cliente Cliente { get; set; }
+        public Cliente? Cliente { get; set; }
         public ICollection<DetallePedido> DetallesPedido { get; set; }
         = new List<DetallePedido>();
 

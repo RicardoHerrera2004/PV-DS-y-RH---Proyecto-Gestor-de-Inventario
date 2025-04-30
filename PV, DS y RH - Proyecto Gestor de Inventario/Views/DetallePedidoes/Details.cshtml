@@ -4,45 +4,52 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="mb-4">Detalles del Pedido</h1>
 
-<div>
-    <h4>DetallePedido</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrecioOriginal)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrecioOriginal)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrecioVendido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrecioVendido)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Obervacion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Obervacion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pedido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pedido.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Producto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Producto.Nombre)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Detalle del Pedido</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3 font-weight-bold">
+                @Html.DisplayNameFor(model => model.PrecioOriginal)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.PrecioOriginal)
+            </dd>
+
+            <dt class="col-sm-3 font-weight-bold">
+                @Html.DisplayNameFor(model => model.PrecioVendido)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.PrecioVendido)
+            </dd>
+
+            <dt class="col-sm-3 font-weight-bold">
+                @Html.DisplayNameFor(model => model.Obervacion)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Obervacion)
+            </dd>
+
+            <dt class="col-sm-3 font-weight-bold">
+                @Html.DisplayNameFor(model => model.Pedido)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Pedido.Id)
+            </dd>
+
+            <dt class="col-sm-3 font-weight-bold">
+                @Html.DisplayNameFor(model => model.Producto)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Producto.Nombre)
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer text-center">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Editar</a>
+        <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+    </div>
 </div>

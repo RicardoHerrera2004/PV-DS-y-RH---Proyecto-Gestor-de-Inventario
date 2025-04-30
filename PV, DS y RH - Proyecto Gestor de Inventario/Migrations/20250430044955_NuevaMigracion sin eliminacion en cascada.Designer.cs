@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
 {
     [DbContext(typeof(SQLServerContextGestionInventarioSJCP))]
-    [Migration("20250428180225_Migracion sin los iconos ni imagenes")]
-    partial class Migracionsinlosiconosniimagenes
+    [Migration("20250430044955_NuevaMigracion sin eliminacion en cascada")]
+    partial class NuevaMigracionsineliminacionencascada
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

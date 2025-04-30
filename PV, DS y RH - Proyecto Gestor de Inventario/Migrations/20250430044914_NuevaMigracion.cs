@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
 {
     /// <inheritdoc />
-    public partial class AgregaIconoAProducto : Migration
+    public partial class NuevaMigracion : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -51,7 +53,6 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     FechaRegistro = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Icono = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Cantidad = table.Column<int>(type: "int", nullable: false),
                     CategoriaId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -63,7 +64,7 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
                         column: x => x.CategoriaId,
                         principalTable: "Categoria",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -86,7 +87,7 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
                         column: x => x.ClienteId,
                         principalTable: "Cliente",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Pedido_Producto_ProductoId",
                         column: x => x.ProductoId,
@@ -114,13 +115,27 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Migrations
                         column: x => x.PedidoId,
                         principalTable: "Pedido",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_DetallePedido_Producto_ProductoId",
                         column: x => x.ProductoId,
                         principalTable: "Producto",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Categoria",
+                columns: new[] { "Id", "Descripcion", "Nombre" },
+                values: new object[,]
+                {
+                    { 1, "Prendas de vestir: camisetas, pantalones, chaquetas…", "Ropa" },
+                    { 2, "Alimentos en conserva, envasados y frescos.", "Comida" },
+                    { 3, "Bebidas alcohólicas y no alcohólicas.", "Bebidas" },
+                    { 4, "Productos de despensa: cereales, lácteos, granos.", "Abarrotes" },
+                    { 5, "Collares, anillos, pulseras y accesorios metálicos.", "Joyas" },
+                    { 6, "Medicamentos y productos de cuidado de la salud.", "Fármacos" },
+                    { 7, "Artículos diversos que no encajan en las categorías anteriores.", "Otros" }
                 });
 
             migrationBuilder.CreateIndex(

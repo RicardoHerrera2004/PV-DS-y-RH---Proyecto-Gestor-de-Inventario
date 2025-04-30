@@ -18,7 +18,7 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Models
         public int Cantidad { get; set; }
         public int CategoriaId { get; set; }
         [ForeignKey("CategoriaId")]
-        public Categoria Categoria { get; set; }
+        public Categoria? Categoria { get; set; }
         public ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
     }
 }

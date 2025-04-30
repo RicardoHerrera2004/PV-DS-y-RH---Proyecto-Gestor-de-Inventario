@@ -56,13 +56,23 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido,Telefono,FechaRegistro")] Cliente cliente)
         {
-            if (ModelState.IsValid)
+            Console.WriteLine("ModelState válido: " + ModelState.IsValid);
+
+            if (!ModelState.IsValid)
             {
-                _context.Add(cliente);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                foreach (var entry in ModelState)
+                {
+                    foreach (var error in entry.Value.Errors)
+                    {
+                        Console.WriteLine($"Error en {entry.Key}: {error.ErrorMessage}");
+                    }
+                }
+                return View(cliente);
             }
-            return View(cliente);
+
+            _context.Add(cliente);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Cliente/Edit/5
