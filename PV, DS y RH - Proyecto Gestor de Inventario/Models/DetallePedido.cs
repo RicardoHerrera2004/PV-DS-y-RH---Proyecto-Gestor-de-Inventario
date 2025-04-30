@@ -14,7 +14,7 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Models
         public string Obervacion { get; set; }
         public int PedidoId { get; set; }
         [ForeignKey("PedidoId")]
-        public Pedido Pedido { get; set; }
+        public Pedido? Pedido { get; set; }
         public int ProductoId { get; set; }
         [ForeignKey("ProductoId")]
         public Producto Producto { get; set; }

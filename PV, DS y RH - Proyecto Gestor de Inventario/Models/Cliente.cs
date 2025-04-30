@@ -14,6 +14,10 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Models
         public string Telefono { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime FechaRegistro { get; set; }
-        public ICollection<Pedido> Pedidos { get; set; }
+        public ICollection<Pedido> Pedidos { get; set; } 
+        public Cliente()
+        {
+            Pedidos = new List<Pedido>();
+        }
     }
 }

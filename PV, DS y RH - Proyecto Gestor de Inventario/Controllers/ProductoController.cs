@@ -53,7 +53,7 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Controllers
                                      .ToList();
 
             // Genera un SelectList con Value = Id y Text = Nombre
-            ViewBag.CategoriaId = new SelectList(categoria, "Id", "Nombre");
+            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "Id", "Nombre");
 
             return View(new Producto
             {
@@ -64,20 +64,27 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Controllers
         // POST: Producto/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Producto producto)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,Precio,FechaRegistro,Cantidad,CategoriaId")] Producto producto)
         {
-            if (ModelState.IsValid)
+            Console.WriteLine("ModelState válido: " + ModelState.IsValid);
+
+            if (!ModelState.IsValid)
             {
-                _context.Producto.Add(producto);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                foreach (var entry in ModelState)
+                {
+                    foreach (var error in entry.Value.Errors)
+                    {
+                        Console.WriteLine($"Error en {entry.Key}: {error.ErrorMessage}");
+                    }
+                }
+
+                ViewData["CategoriaId"] = new SelectList(_context.Categoria, "Id", "Nombre", producto.CategoriaId);
+                return View(producto);
             }
-            // si falla validación, recargamos el dropdown
-            ViewBag.CategoriaId = new SelectList(
-                _context.Categoria.OrderBy(c => c.Nombre),
-                "Id", "Nombre", producto.CategoriaId
-            );
-            return View(producto);
+
+            _context.Add(producto);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Producto/Edit/5
