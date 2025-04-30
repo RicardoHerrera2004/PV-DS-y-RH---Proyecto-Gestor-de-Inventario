@@ -1,49 +1,63 @@
 ﻿@model PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Models.Cliente
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Cliente";
 }
 
-<h1>Edit</h1>
+<h1 class="mb-4">Editar Cliente</h1>
 
-<h4>Cliente</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="card shadow-sm">
+    <div class="card-body">
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
+
+            <div class="mb-3">
+                <label asp-for="Nombre" class="form-label fw-semibold">
+                    <i class="bi bi-person-fill me-1"></i> Nombre
+                </label>
+                <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre" />
+                <span asp-validation-for="Nombre" class="text-danger small"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Apellido" class="control-label"></label>
-                <input asp-for="Apellido" class="form-control" />
-                <span asp-validation-for="Apellido" class="text-danger"></span>
+
+            <div class="mb-3">
+                <label asp-for="Apellido" class="form-label fw-semibold">
+                    <i class="bi bi-person-vcard-fill me-1"></i> Apellido
+                </label>
+                <input asp-for="Apellido" class="form-control" placeholder="Ingrese el apellido" />
+                <span asp-validation-for="Apellido" class="text-danger small"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Telefono" class="control-label"></label>
-                <input asp-for="Telefono" class="form-control" />
-                <span asp-validation-for="Telefono" class="text-danger"></span>
+
+            <div class="mb-3">
+                <label asp-for="Telefono" class="form-label fw-semibold">
+                    <i class="bi bi-telephone-fill me-1"></i> Teléfono
+                </label>
+                <input asp-for="Telefono" class="form-control" placeholder="Ingrese el teléfono" />
+                <span asp-validation-for="Telefono" class="text-danger small"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="FechaRegistro" class="control-label"></label>
-                <input asp-for="FechaRegistro" class="form-control" />
-                <span asp-validation-for="FechaRegistro" class="text-danger"></span>
+
+            <div class="mb-3">
+                <label asp-for="FechaRegistro" class="form-label fw-semibold">
+                    <i class="bi bi-calendar-date-fill me-1"></i> Fecha de Registro
+                </label>
+                <input asp-for="FechaRegistro" class="form-control" type="date" />
+                <span asp-validation-for="FechaRegistro" class="text-danger small"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+
+            <div class="d-flex justify-content-between align-items-center mt-4">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left-circle me-1"></i> Volver a la lista
+                </a>
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-save2-fill me-1"></i> Guardar cambios
+                </button>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

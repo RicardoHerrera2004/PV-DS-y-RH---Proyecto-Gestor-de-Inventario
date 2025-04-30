@@ -21,10 +21,7 @@ html {
     min-height: 100%;
 }
 
-header {
-    background-color: #212529;
-    color: white; /* Texto blanco */
-}
+
 
     /* Opcional: ajustar ancho máximo de header */
     header .container {
@@ -40,7 +37,35 @@ body {
 .sidebar {
     background-color: #2b3035;
     min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px; /* o el ancho que estés usando */
+    z-index: 1000;
 }
+    /* Estilo más atractivo para los items del menú lateral */
+    .sidebar .nav-link {
+        color: #fff;
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid #444;
+        transition: background 0.2s ease;
+    }
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            background-color: #495057;
+            color: #fff;
+            border-radius: 0.25rem;
+        }
+
+        /* Opcional: ícono antes del texto, si usas Bootstrap Icons */
+        .sidebar .nav-link i {
+            margin-right: 0.5rem;
+        }
+
 
 /* Logo container */
 .logo-container {
@@ -53,15 +78,26 @@ body {
     }
 
     .logo-container span {
-        color: #fff;
-        font-size: 1.5rem;
-        margin-left: .5rem;
+        margin-left: 2px; 
+        font-family: "Playwrite RO", cursive;
+        font-optical-sizing: auto;
+        font-weight: 100;
+        font-style: normal;
+        color: floralwhite;
+        letter-spacing: 0.5px;
     }
-
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2C3E50;
+    color: #fff;
+    margin-top: 50px;
+}
 /* Main content */
 main {
+    margin-left: 280px; /* mismo valor que el width de la sidebar */
     padding: 1.5rem;
-    background: #f8f9fa; /* o tu color preferido */
+    background: floralwhite; /* o tu color preferido */
 }
 
 /* Carrusel en Home */

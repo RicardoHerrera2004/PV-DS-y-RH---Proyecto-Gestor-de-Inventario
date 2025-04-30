@@ -18,6 +18,7 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Controllers
             _context = context;
         }
 
+
         // GET: Cliente
         public async Task<IActionResult> Index()
         {
