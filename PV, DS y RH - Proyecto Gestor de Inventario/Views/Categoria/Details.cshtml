@@ -1,0 +1,34 @@
+﻿@model PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Models.Categoria
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="mb-4">Detalles de la Categoría</h1>
+
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Categoria</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3 font-weight-bold">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+
+            <dt class="col-sm-3 font-weight-bold">
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer text-center">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Editar</a>
+        <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+    </div>
+</div>

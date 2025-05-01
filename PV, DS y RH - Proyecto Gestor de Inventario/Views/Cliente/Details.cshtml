@@ -1,0 +1,48 @@
+﻿@model PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Models.Cliente
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="mb-4">Detalles del Cliente</h1>
+
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Cliente</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3 font-weight-bold">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+
+            <dt class="col-sm-3 font-weight-bold">
+                @Html.DisplayNameFor(model => model.Apellido)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Apellido)
+            </dd>
+
+            <dt class="col-sm-3 font-weight-bold">
+                @Html.DisplayNameFor(model => model.Telefono)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Telefono)
+            </dd>
+
+            <dt class="col-sm-3 font-weight-bold">
+                @Html.DisplayNameFor(model => model.FechaRegistro)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.FechaRegistro)
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer text-center">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Editar</a>
+        <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+﻿@model PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Models.DetallePedido
+
+@{
+    ViewData["Title"] = "Crear Detalle Pedido";
+}
+
+<h1>Crear Detalle de Pedido</h1>
+<p>Con esta opción, puedes agregar los detalles de un pedido, incluyendo el precio original, precio vendido, observaciones y seleccionar el pedido y el producto correspondientes.</p>
+<hr />
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <!-- Resumen de validación -->
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <!-- Campo Precio Original -->
+                    <div class="mb-3">
+                        <label asp-for="PrecioOriginal" class="form-label fw-semibold">Precio Original</label>
+                        <input asp-for="PrecioOriginal" class="form-control" placeholder="Precio original del producto" />
+                        <span asp-validation-for="PrecioOriginal" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Campo Precio Vendido -->
+                    <div class="mb-3">
+                        <label asp-for="PrecioVendido" class="form-label fw-semibold">Precio Vendido</label>
+                        <input asp-for="PrecioVendido" class="form-control" placeholder="Precio al que se vendió" />
+                        <span asp-validation-for="PrecioVendido" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Campo Observación -->
+                    <div class="mb-3">
+                        <label asp-for="Obervacion" class="form-label fw-semibold">Observación</label>
+                        <input asp-for="Obervacion" class="form-control" placeholder="Observaciones adicionales" />
+                        <span asp-validation-for="Obervacion" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Selección Pedido -->
+                    <div class="mb-3">
+                        <label asp-for="PedidoId" class="form-label fw-semibold">Seleccionar Pedido</label>
+                        <select asp-for="PedidoId" class="form-select" asp-items="ViewBag.PedidoId">
+                            <option value="">-- Selecciona un pedido --</option>
+                        </select>
+                        <span asp-validation-for="PedidoId" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Selección Producto -->
+                    <div class="mb-3">
+                        <label asp-for="ProductoId" class="form-label fw-semibold">Seleccionar Producto</label>
+                        <select asp-for="ProductoId" class="form-select" asp-items="ViewBag.ProductoId">
+                            <option value="">-- Selecciona un producto --</option>
+                        </select>
+                        <span asp-validation-for="ProductoId" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Botón Crear -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-check-circle me-2"></i>Crear Detalle
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Botón Regresar -->
+<div class="mt-3">
+    <a class="btn btn-outline-secondary d-inline-flex align-items-center" asp-action="Index">
+        Regresar a la Lista
+        <i class="bi bi-arrow-left-short" style="font-size: 20px;"></i>
+    </a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

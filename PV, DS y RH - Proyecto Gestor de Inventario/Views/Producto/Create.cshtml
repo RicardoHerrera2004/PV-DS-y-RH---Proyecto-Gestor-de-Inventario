@@ -1,0 +1,78 @@
+﻿@model PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Models.Producto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear Nuevo Producto </h1>
+<p>Con esta opción, puedes agregar fácilmente un producto al sistema. Solo tienes que completar un formulario con detalles como el nombre, la descripción, el precio, la cantidad, la fecha y la categoría.</p>
+<hr />
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                         
+                    <div class="mb-3">
+                        <label asp-for="Nombre" class="form-label fw-semibold"></label>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Descripcion" class="form-label fw-semibold"></label>
+                        <input asp-for="Descripcion" class="form-control" />
+                        <span asp-validation-for="Descripcion" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Precio" class="form-label fw-semibold"></label>
+                        <input asp-for="Precio" class="form-control" />
+                        <span asp-validation-for="Precio" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="FechaRegistro" class="form-label fw-semibold"></label>
+                        <input asp-for="FechaRegistro" class="form-control" />
+                        <span asp-validation-for="FechaRegistro" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Cantidad" class="form-label fw-semibold"></label>
+                        <input asp-for="Cantidad" class="form-control" />
+                        <span asp-validation-for="Cantidad" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="CategoriaId" class="form-label fw-semibold"></label>
+                        <select asp-for="CategoriaId" class="form-select" asp-items="ViewBag.CategoriaId">
+                            <option value="">-- Selecciona categoría --</option>
+                        </select>
+                        <span asp-validation-for="CategoriaId" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-check-circle me-2"></i>Crear
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a class="btn btn-outline-secondary d-inline-flex align-items-center mt-2" asp-action=Index>
+    Regresar
+    <i class="bi bi-arrow-left-short" style="font-size: 20px;"></i>
+</a>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

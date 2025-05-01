@@ -1,0 +1,50 @@
+﻿@model IEnumerable<PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<h1>Clientes</h1>
+
+<!-- Botón para crear nuevo cliente -->
+<p>
+    <a class="btn btn-primary d-inline-flex align-items-center" asp-action="Create">
+        Crear Nuevo Cliente
+        <i class="bi bi-plus-circle ms-2" style="font-size: 20px;"></i>
+    </a>
+</p>
+
+<!-- Tabla de clientes -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Apellido)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Telefono)</th>
+            <th>@Html.DisplayNameFor(model => model.First().FechaRegistro)</th>
+            <th class="text-center">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
+                <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                <td>@Html.DisplayFor(modelItem => item.FechaRegistro)</td>
+                <td class="text-center">
+                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.Id">
+                        <i class="bi bi-pencil-square"></i> Editar
+                    </a>
+                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.Id">
+                        <i class="bi bi-eye"></i> Detalles
+                    </a>
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">
+                        <i class="bi bi-trash"></i> Eliminar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

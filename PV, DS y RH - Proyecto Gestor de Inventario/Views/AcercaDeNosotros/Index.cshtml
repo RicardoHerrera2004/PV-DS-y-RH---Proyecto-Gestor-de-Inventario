@@ -1,0 +1,174 @@
+﻿@{
+    ViewData["Title"] = "Acerca de Nosotros";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: floralwhite;
+            color: #333;
+        }
+
+        /* Eliminar márgenes por defecto y asegurarse de que el body ocupa todo el ancho */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Contenedor general */
+        .container {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header con la imagen */
+        header {
+            margin-left: 0;
+            width: 112%;
+            height: 30vh;
+            overflow: hidden;
+            position: relative;
+            z-index: 0;
+        }
+
+            header img {
+                width: 100%;
+                height: 100%; /* Ocupa el 100% de la altura disponible */
+                object-fit: cover; /* Ajusta la imagen para que cubra todo el espacio */
+                margin: 0;
+                padding: 0;
+            }
+
+            /* El título dentro de la imagen */
+            header h1 {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                font-family: "Dancing Script", cursive;
+                font-optical-sizing: auto;
+                font-weight: <weight>;
+                font-style: normal;
+                font-size: 4.5em;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+
+        section {
+            margin: 40px 0;
+        }
+
+        .image-section {
+            display: flex;
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente dentro del contenedor */
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap; /* Para que no se rompa en pantallas pequeñas */
+        }
+
+            .image-section img {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 4px solid #2C3E50;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+
+        .content-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+            .content-section .text {
+                flex: 1;
+            }
+
+                .content-section .text h2 {
+                    font-size: 2em;
+                    color: #34495E;
+                }
+
+                .content-section .text p {
+                    font-size: 1.1em;
+                    line-height: 1.6;
+                }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2C3E50;
+            color: #fff;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <img src="@Url.Content("~/images/como-escribir-web-sobre-nosotros.jpg")" alt="acerca de nosotros" />
+
+            <h1>Acerca de Nosotros</h1>
+        </header>
+
+        <!-- Image Section -->
+        <section class="image-section">
+            <img src="@Url.Content("~/images/Unidev.jpg")" style="max-width: 100%; height: auto;" alt="unidev foto" />
+            <img src="~/images/Unidev Grupo.jpg" width="300" alt="Unidev Foto" />
+        </section>
+
+        <!-- Content Section -->
+        <section class="content-section">
+            <div class="text">
+                <h2>¿Quiénes somos?</h2>
+                <p>
+                    Somos <strong>UniDevs</strong>, un grupo de amigos que se conocieron en la universidad y que comparten algo en común:
+                    una gran pasión por la programación y por encontrar soluciones creativas a problemas reales.
+                    Lo que empezó con tareas, proyectos en equipo y noches de desvelo, hoy es un equipo que disfruta construir ideas con código.
+                </p>
+
+                <h2>Nuestro origen</h2>
+                <p>
+                    UniDevs nació en los pasillos de la universidad, entre clases, cafeterías y muchas líneas de código.
+                    Descubrimos que juntos trabajamos mejor, nos motivamos y aprendemos constantemente unos de otros.
+                    Por eso decidimos dar un paso más y empezar a crear proyectos más allá del aula.
+                </p>
+
+                <h2>¿Qué hacemos?</h2>
+                <p>
+                    Nos dedicamos al desarrollo de software con el objetivo de mejorar procesos, automatizar tareas y facilitar la vida de quienes usan nuestras herramientas.
+                    Siempre buscamos que nuestras soluciones sean útiles, funcionales y bien pensadas.
+                </p>
+
+                <h2>Nuestro propósito</h2>
+                <p>
+                    Más que un equipo de desarrollo, somos un grupo de amigos que disfruta lo que hace.
+                    Queremos seguir creciendo, aprendiendo y aportando con cada nuevo proyecto.
+                    Porque cuando uno hace lo que le gusta, y lo hace con amigos, el resultado siempre es mejor.
+                </p>
+
+            </div>
+        </section>
+    </div>
+
+
+</body>
+</html>
