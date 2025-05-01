@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreGeneratedDocument;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -118,19 +119,19 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Controllers
         // GET: Categoria/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
+            var cat = await _context.Categoria
+                                    .Include(c => c.Productos)
+                                    .FirstOrDefaultAsync(c => c.Id == id);
+            if (cat == null) return NotFound();
 
-            var categoria = await _context.Categoria
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (categoria == null)
+            if (cat.Productos.Any())
             {
-                return NotFound();
+                // Le pasamos a la vista un aviso
+                ViewBag.ErrorMessage =
+                    $"No puedes eliminar la categoría «{cat.Nombre}» porque tiene {cat.Productos.Count} producto(s) asociados.";
             }
-
-            return View(categoria);
+            return View(cat);
         }
 
         // POST: Categoria/Delete/5
@@ -138,12 +139,19 @@ namespace PV__DS_y_RH___Proyecto_Gestor_de_Inventario.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var categoria = await _context.Categoria.FindAsync(id);
-            if (categoria != null)
+            var cat = await _context.Categoria
+                             .Include(c => c.Productos)
+                             .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (cat.Productos.Any())
             {
-                _context.Categoria.Remove(categoria);
+                // Re-renderiza la vista con el mensaje de error
+                ViewBag.ErrorMessage =
+                    $"No puedes eliminar «{cat.Nombre}» porque hay {cat.Productos.Count} productos asociados.";
+                return View(cat);
             }
 
+            _context.Categoria.Remove(cat);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
