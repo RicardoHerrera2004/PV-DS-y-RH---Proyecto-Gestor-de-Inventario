@@ -129,43 +129,85 @@
             <h1>Acerca de Nosotros</h1>
         </header>
 
-        <!-- Image Section -->
-        <section class="image-section">
-            <img src="@Url.Content("~/images/Unidev.jpg")" style="max-width: 100%; height: auto;" alt="unidev foto" />
-            <img src="~/images/Unidev Grupo.jpg" width="300" alt="Unidev Foto" />
-        </section>
 
         <!-- Content Section -->
         <section class="content-section">
-            <div class="text">
-                <h2>¿Quiénes somos?</h2>
-                <p>
-                    Somos <strong>UniDevs</strong>, un grupo de amigos que se conocieron en la universidad y que comparten algo en común:
-                    una gran pasión por la programación y por encontrar soluciones creativas a problemas reales.
-                    Lo que empezó con tareas, proyectos en equipo y noches de desvelo, hoy es un equipo que disfruta construir ideas con código.
-                </p>
+            <div class="container py-5">
+                <!-- Sección 1 -->
+                <div class="row featurette align-items-center mb-5">
+                    <div class="col-md-7">
+                        <h2 class="featurette-heading fw-bold">
+                            ¿Quiénes somos? <span class="text-muted">Amigos, soñadores y desarrolladores.</span>
+                        </h2>
+                        <p class="lead">
+                            Somos <strong>UniDevs</strong>, un grupo de amigos que se conocieron en la universidad con una pasión en común: la programación.
+                            Lo que comenzó como tareas y desvelos, hoy es un equipo unido por las ideas y el código.
+                        </p>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="@Url.Content("~/images/Unidev.jpg")"
+                             class="img-fluid rounded-circle shadow mx-auto d-block"
+                             style="max-width: 300px;"
+                             alt="Unidev equipo">
+                    </div>
+                </div>
 
-                <h2>Nuestro origen</h2>
-                <p>
-                    UniDevs nació en los pasillos de la universidad, entre clases, cafeterías y muchas líneas de código.
-                    Descubrimos que juntos trabajamos mejor, nos motivamos y aprendemos constantemente unos de otros.
-                    Por eso decidimos dar un paso más y empezar a crear proyectos más allá del aula.
-                </p>
+                <hr class="featurette-divider">
 
-                <h2>¿Qué hacemos?</h2>
-                <p>
-                    Nos dedicamos al desarrollo de software con el objetivo de mejorar procesos, automatizar tareas y facilitar la vida de quienes usan nuestras herramientas.
-                    Siempre buscamos que nuestras soluciones sean útiles, funcionales y bien pensadas.
-                </p>
+                <!-- Sección 2 -->
+                <div class="row featurette align-items-center mb-5">
+                    <div class="col-md-7 order-md-2">
+                        <h2 class="featurette-heading fw-bold">
+                            Nuestro origen <span class="text-muted">en los pasillos universitarios.</span>
+                        </h2>
+                        <p class="lead">
+                            UniDevs nació entre clases, cafeterías y muchas líneas de código. Descubrimos que trabajando juntos aprendíamos más y mejor.
+                        </p>
+                    </div>
+                    <div class="col-md-5 order-md-1">
+                        <img src="@Url.Content("~/images/Unidev Grupo.jpg")" class="img-fluid rounded-circle shadow"
+                             style="max-width: 270px; " alt="Unidevs grupo">
+                    </div>
+                </div>
 
-                <h2>Nuestro propósito</h2>
-                <p>
-                    Más que un equipo de desarrollo, somos un grupo de amigos que disfruta lo que hace.
-                    Queremos seguir creciendo, aprendiendo y aportando con cada nuevo proyecto.
-                    Porque cuando uno hace lo que le gusta, y lo hace con amigos, el resultado siempre es mejor.
-                </p>
+                <hr class="featurette-divider">
 
+                <!-- Sección 3 -->
+                <div class="row featurette align-items-center mb-5">
+                    <div class="col-md-7">
+                        <h2 class="featurette-heading fw-bold">
+                            ¿Qué hacemos? <span class="text-muted">Soluciones con propósito.</span>
+                        </h2>
+                        <p class="lead">
+                            Nos dedicamos al desarrollo de software que mejora procesos y simplifica tareas. Cada solución busca ser útil, intuitiva y bien pensada.
+                        </p>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="https://images.griddo.universitatcarlemany.com/metodologias-de-desarrollo-de-software-ucma-1" class="img-fluid rounded-circle shadow"
+                             style="max-width: 500px;" 
+                             alt="proyectos">
+                    </div>
+                </div>
+
+                <hr class="featurette-divider">
+
+                <!-- Sección 4 -->
+                <div class="row featurette align-items-center mb-5">
+                    <div class="col-md-7 order-md-2">
+                        <h2 class="featurette-heading fw-bold">
+                            Nuestro propósito <span class="text-muted">y nuestra pasión.</span>
+                        </h2>
+                        <p class="lead">
+                            Queremos crecer, aprender y construir, siempre con la amistad como base. Porque cuando disfrutas lo que haces, el resultado se nota.
+                        </p>
+                    </div>
+                    <div class="col-md-5 order-md-1">
+                        <img src="https://grupovertice.com/blog/wp-content/uploads/2016/10/trabajo-cool2.jpg" class="img-fluid rounded-circle shadow"
+                             style="max-width: 500px;" alt="propósito">
+                    </div>
+                </div>
             </div>
+
         </section>
     </div>
 
