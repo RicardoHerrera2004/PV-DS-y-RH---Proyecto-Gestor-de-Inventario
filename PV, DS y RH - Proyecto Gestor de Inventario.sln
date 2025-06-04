@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SierraVargasHerrera-GestorInventario", "PV, DS y RH - Proyecto Gestor de Inventario\SierraVargasHerrera-GestorInventario.csproj", "{A10F3D21-157B-4767-9439-05FBECD7AC1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HerreraSierraVargasProyecto2P", "..\HerreraSierraVargasProyecto2P\HerreraSierraVargasProyecto2P\HerreraSierraVargasProyecto2P.csproj", "{57115A6F-7D23-9AF4-90B9-0D0B22F7BB44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A10F3D21-157B-4767-9439-05FBECD7AC1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A10F3D21-157B-4767-9439-05FBECD7AC1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A10F3D21-157B-4767-9439-05FBECD7AC1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57115A6F-7D23-9AF4-90B9-0D0B22F7BB44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57115A6F-7D23-9AF4-90B9-0D0B22F7BB44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57115A6F-7D23-9AF4-90B9-0D0B22F7BB44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57115A6F-7D23-9AF4-90B9-0D0B22F7BB44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
